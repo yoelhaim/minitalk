@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/01/02 22:10:20 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/01/03 21:38:08 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int main(int ac , char **av)
 	int	i;
 	char *usage;
 
-	usage = "USAGE :./client  try again";
+	usage = "USAGE :./client";
 	i = 0;
 	signal(SIGUSR1, ft_handler);
 	if (ac != 3)
