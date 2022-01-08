@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/01/03 21:38:08 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/01/08 21:13:43 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	sending(char c, int pid)
 void	ft_handler(int sig)
 {
 	(void) sig;
-	printf("sssss");
+	write(1, "success", 8);
 }
 
 int main(int ac , char **av)
