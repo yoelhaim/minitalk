@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoelhaim <yoelhaim@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 20:11:19 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/01/08 21:12:49 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:47:29 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void    ft_handler(int sig, siginfo_t *list_info, void *no)
 {
 	static char	c;
-	static int	cnt;
+	static int	cont;
 	static int	last_pid;
 
 	(void)no;
@@ -25,14 +25,14 @@ void    ft_handler(int sig, siginfo_t *list_info, void *no)
 	{
 		write(1, "\n", 1);
 		c = 0;
-		cnt = 0;
+		cont = 0;
 	}
 	c = (c << 1) | (sig & 1);
-	if (++cnt == 8)
+	if (++cont == 8)
 	{
 		write(1, &c, 1);
 		c = 0;
-		cnt = 0;
+		cont = 0;
 	}
 	last_pid = list_info->si_pid;
 }
@@ -45,7 +45,7 @@ int main()
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	printf("id is => %d\n", getpid());
-	
+
 	 while(1)
 		pause();
 }
