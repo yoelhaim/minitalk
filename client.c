@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/04 16:30:04 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:44:38 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sending(char c, int pid)
 	{
 		bit = (c >> i) & 1;
 		kill (pid, SIGUSR1 + bit);
-		usleep (500);
+		usleep (1000);
 		i--;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 20:11:19 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/04 16:37:33 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:48:01 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,31 @@ void	ft_handler(int sig, siginfo_t *list_info, void *no)
 	if (i == 8)
 	{
 		if (c == 0)
-			kill (list_info->si_pid, sig + c);
+			kill (list_info->si_pid, SIGUSR1);
 		else
 			write (1, &c, 1);
 		i = 0;
 		c = 0;
 	}
 	last = list_info->si_pid;
+}
+
+void	ft_putnbr(unsigned int nb)
+{
+	long	n;
+	int		res;
+
+	n = nb;
+	if (nb <= 9)
+	{
+		res = nb + 48;
+		write (1, &res, 1);
+	}
+	else
+	{
+		ft_putnbr (nb / 10);
+		ft_putnbr (nb % 10);
+	}
 }
 
 int	main(void)
@@ -50,7 +68,9 @@ int	main(void)
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-	printf("pid => %d\n", getpid());
+	write (1, "pid => ", 8);
+	ft_putnbr (getpid());
+	write (1, "\n", 1);
 	while (1)
 		pause();
 }
