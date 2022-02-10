@@ -6,13 +6,12 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 20:11:19 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/07 19:48:01 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/08 12:15:49 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 void	ft_handler(int sig, siginfo_t *list_info, void *no)

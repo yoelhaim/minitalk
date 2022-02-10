@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/07 19:44:38 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/08 12:09:25 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sending(char c, int pid)
 	{
 		bit = (c >> i) & 1;
 		kill (pid, SIGUSR1 + bit);
-		usleep (1000);
+		usleep (600);
 		i--;
 	}
 }
@@ -74,8 +74,8 @@ void	ft_handler(int sig, siginfo_t *list_info, void *no)
 
 int	main(int ac, char **av)
 {
-	int		pid;
-	int		i;
+	int					pid;
+	int					i;
 	struct sigaction	sa;
 
 	sa.sa_sigaction = &ft_handler;
@@ -85,13 +85,14 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac != 3)
 	{
-		exit(1);
+		write (1, "Usage: ./client [server PID] [string to send]\n", 47);
+		exit(EXIT_FAILURE);
 	}
 	pid = ft_atoi(av[1]);
 	if (pid < 1)
 	{
-		write(1, "Bad pid \n", 14);
-		exit(1);
+		write(1, "Bad pid \n", 10);
+		exit(EXIT_FAILURE);
 	}
 	while (av[2][i])
 		sending(av[2][i++], pid);
