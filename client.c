@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/11 09:44:28 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:15:55 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ int	main(int ac, char **av)
 	while (av[2][i])
 		sending(av[2][i++], pid);
 	sending('\0', pid);
+	return (0);
 }
