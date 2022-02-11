@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/08 12:09:25 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/11 09:44:28 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sending(char c, int pid)
 	{
 		bit = (c >> i) & 1;
 		kill (pid, SIGUSR1 + bit);
-		usleep (600);
+		usleep (800);
 		i--;
 	}
 }
@@ -81,7 +81,6 @@ int	main(int ac, char **av)
 	sa.sa_sigaction = &ft_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
-	sigaction(SIGUSR2, &sa, NULL);
 	i = 0;
 	if (ac != 3)
 	{
