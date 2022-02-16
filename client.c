@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 17:24:41 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/11 13:15:55 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:12:06 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,11 @@ void	sending(char c, int pid)
 	}
 }
 
-void	ft_handler(int sig, siginfo_t *list_info, void *no)
-{
-	(void) no;
-	(void) list_info;
-	(void) sig;
-	write(STDOUT_FILENO, "successfully send", 18);
-}
-
 int	main(int ac, char **av)
 {
 	int					pid;
 	int					i;
-	struct sigaction	sa;
 
-	sa.sa_sigaction = &ft_handler;
-	sa.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR1, &sa, NULL);
 	i = 0;
 	if (ac != 3)
 	{

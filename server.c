@@ -6,7 +6,7 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 20:11:19 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/11 13:15:42 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/15 16:11:30 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ void	ft_handler(int sig, siginfo_t *list_info, void *no)
 	i++;
 	if (i == 8)
 	{
-		if (c == 0)
-			kill (list_info->si_pid, SIGUSR1);
-		else
-			write (1, &c, 1);
+		write (1, &c, 1);
 		i = 0;
 		c = 0;
 	}
