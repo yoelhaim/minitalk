@@ -6,13 +6,11 @@
 /*   By: yoelhaim <yoelhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 20:11:19 by yoelhaim          #+#    #+#             */
-/*   Updated: 2022/02/15 16:11:01 by yoelhaim         ###   ########.fr       */
+/*   Updated: 2022/02/19 17:20:01 by yoelhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "utils.h"
 
 void	ft_handler(int sig, siginfo_t *list_info, void *no)
 {
@@ -39,24 +37,6 @@ void	ft_handler(int sig, siginfo_t *list_info, void *no)
 		c = 0;
 	}
 	last = list_info->si_pid;
-}
-
-void	ft_putnbr(unsigned int nb)
-{
-	long	n;
-	int		res;
-
-	n = nb;
-	if (nb <= 9)
-	{
-		res = nb + 48;
-		write (1, &res, 1);
-	}
-	else
-	{
-		ft_putnbr (nb / 10);
-		ft_putnbr (nb % 10);
-	}
 }
 
 int	main(void)
